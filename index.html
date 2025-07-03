@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>随机背景图示例</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center center;
+      transition: background-image 0.5s ease-in-out;
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+      color: white;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>伪随机背景图</h1>
+    <p>刷新页面以切换背景图。图片来自：<code>https://sb-r2.afo.im/ri/h/{*}.webp</code></p>
+  </div>
+
+  <script>
+    (function () {
+      const min = 1;
+      const max = 200;
+      const randomIndex = Math.floor(Math.random() * (max - min + 1)) + min;
+      const imageUrl = `https://sb-r2.afo.im/ri/h/${randomIndex}.webp`;
+      document.body.style.backgroundImage = `url('${imageUrl}')`;
+    })();
+  </script>
+</body>
+</html>
