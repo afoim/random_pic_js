@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机图片重定向</title>
+</head>
+<body>
+    <script>
+        // 获取URL参数中的最大数值
+        const urlParams = new URLSearchParams(window.location.search);
+        const maxNum = parseInt(urlParams.get('max')) || 2406; // 默认最大值为100
+        
+        // 生成1到最大数之间的随机数
+        const randomNum = Math.floor(Math.random() * maxNum) + 1;
+        
+        // 构建目标URL
+        const targetUrl = `https://sb-r2.afo.im/ri/v/${randomNum}.webp`;
+        
+        // 执行302重定向
+        window.location.href = targetUrl;
+    </script>
+</body>
+</html>
